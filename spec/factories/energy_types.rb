@@ -22,8 +22,8 @@
 #
 FactoryBot.define do
   factory :energy_type do
-    name { 'MyString' }
-    unit { 'MyString' }
-    user { nil }
+    sequence(:name) { |n| "Energy Type #{n}" }
+    unit { 'kWh' }
+    association :user
   end
 end

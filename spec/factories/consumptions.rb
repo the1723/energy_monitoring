@@ -23,9 +23,9 @@
 #
 FactoryBot.define do
   factory :consumption do
-    energy_type { nil }
-    value { 1 }
-    date_of_reading { '2025-11-16 16:33:39' }
-    user { nil }
+    association :energy_type
+    association :user
+    value { 100 }
+    date_of_reading { Time.zone.now }
   end
 end
