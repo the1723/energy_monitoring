@@ -23,9 +23,6 @@
             <%= f.label :password, class: "label" %>
             <span class="text-sm text-muted-foreground">(leave blank if you don't want to change it)</span>
             <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
-            <% if @minimum_password_length %>
-              <span class="text-sm text-muted-foreground"><%= @minimum_password_length %> characters minimum</span>
-            <% end %>
           </div>
 
           <div class="grid gap-3">
