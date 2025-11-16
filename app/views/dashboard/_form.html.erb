@@ -1,0 +1,13 @@
+<%= form_with(model: dashboard, class: "space-y-4") do |form| %>
+  <%= render "/layouts/form_errors", object: dashboard if dashboard.errors.any? %>
+
+  <div class="field">
+    <%= form.label :index, class: "label" %>
+    <%= form.text_field :index, class: "input" %>
+  </div>
+
+  <div class="flex justify-end space-x-3 pt-6">
+    <%= link_to "Cancel", dashboards_path, class: "btn-outline" %>
+    <%= form.submit class: "btn" %>
+  </div>
+<% end %>

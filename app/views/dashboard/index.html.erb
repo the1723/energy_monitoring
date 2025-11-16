@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "main_content" do %>
+  <%= render 'layouts/notice', notice: notice if notice %>
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl">Dashboards</h1>
+  </div>
+  <div class="overflow-x-auto" id="dashboards">
+  </div>
+<% end %>
