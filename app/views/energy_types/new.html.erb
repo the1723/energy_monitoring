@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "main_content" do %>
+  <%= render 'layouts/notice', notice: notice if notice %>
+  <div class="max-w-2xl mx-auto">
+    <div class="card">
+      <header>
+        <h2>New energy type</h2>
+        <p>Fill in the form below to create a new energy type.</p>
+      </header>
+      <section>
+        <%= render "form", energy_type: @energy_type %>
+      </section>
+    </div>
+
+    <div class="mt-6">
+      <%= link_to "Back to energy types", energy_types_path, class: "btn-outline", data: { turbo_action: "advance" } %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<%= form_with(model: energy_type, class: "space-y-4") do |form| %>
+  <%= render "/layouts/form_errors", object: energy_type if energy_type.errors.any? %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit, class: "label" %>
+    <%= form.text_field :unit, class: "input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id, class: "label" %>
+    <%= form.text_field :user_id, class: "input" %>
+  </div>
+
+  <div class="flex justify-end space-x-3 pt-6">
+    <%= link_to "Cancel", energy_types_path, class: "btn-outline" %>
+    <%= form.submit class: "btn" %>
+  </div>
+<% end %>

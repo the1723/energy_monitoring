@@ -19,5 +19,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :rememberable, :validatable
 
+  has_many :energy_types, dependent: :destroy
+
   validates :name, presence: true
 end

@@ -1,0 +1,50 @@
+<%= turbo_frame_tag "main_content" do %>
+  <%= render 'layouts/notice', notice: notice if notice %>
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-3xl">Energy types</h1>
+    <%= link_to "New energy type", new_energy_type_path, class: "btn", data: { turbo_action: "advance" } %>
+  </div>
+
+  <div class="overflow-x-auto" id="energy_types">
+    <table class="table">
+      <thead>
+        <tr class="hover:bg-background">
+          <th>
+            Name
+          </th>
+          <th>
+            Unit
+          </th>
+          <th>
+            User
+          </th>
+          <th class="bg-background sticky right-0">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @energy_types.each do |energy_type| %>
+          <tr class="hover:bg-background">
+            <td>
+              <%= energy_type.name %>
+            </td>
+            <td>
+              <%= energy_type.unit %>
+            </td>
+            <td>
+              <%= energy_type.user_id %>
+            </td>
+            <td class="bg-background sticky right-0">
+              <%= link_to "Show", energy_type, class: "btn-outline", data: { turbo_action: "advance" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <% if @energy_types.empty? %>
+    <%= render "shared/empty", resource_name: "energy types", new_path: new_energy_type_path %>
+  <% end %>
+<% end %>

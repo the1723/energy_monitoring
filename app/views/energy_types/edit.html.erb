@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "main_content" do %>
+  <%= render 'layouts/notice', notice: notice if notice %>
+  <div class="max-w-2xl mx-auto">
+    <div class="card">
+      <header>
+        <h2>Editing energy type</h2>
+        <p>Update the form below to modify this energy type.</p>
+      </header>
+      <section>
+        <%= render "form", energy_type: @energy_type %>
+      </section>
+    </div>
+
+    <div class="flex flex-wrap gap-3 mt-6">
+      <%= link_to "Show this energy type", @energy_type, class: "btn-outline", data: { turbo_action: "advance" } %>
+      <%= link_to "Back to energy types", energy_types_path, class: "btn-outline", data: { turbo_action: "advance" } %>
+    </div>
+  </div>
+<% end %>
