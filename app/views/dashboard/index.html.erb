@@ -1,3 +1,4 @@
+<% content_for(:title) { "Dashboard" } %>
 <%= turbo_frame_tag "main_content" do %>
   <%= render 'layouts/notice', notice: notice if notice %>
   <div class="mb-8">
@@ -6,7 +7,6 @@
   </div>
   <!-- Filters Section -->
   <div class="card p-6 mb-6">
-    <h2 class="text-lg font-semibold mb-4">Filters</h2>
     <%= form_with url: root_path, method: :get, data: {
       turbo_frame: "main_content"
     }, class: "space-y-4" do |f| %>
