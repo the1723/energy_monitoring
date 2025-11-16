@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "basecoat-css";
 dl {
     font-size: var(--text-sm);
     dt {
