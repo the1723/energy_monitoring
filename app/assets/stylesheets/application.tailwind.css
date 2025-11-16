@@ -1,7 +1,48 @@
 @import "tailwindcss";
 @import "basecoat-css";
+
+
+@layer components {
+    .pagy {
+        --spacing: 0.125rem;
+        --padding: 0.6rem;
+        --rounding: 4px;
+        --border-width: 0.5px;
+        --font-size: 0.875rem;
+        --font-weight: 300;
+        --line-height: 1.25;
+        --py: calc(var(--padding) / 3);
+
+        --text: var(--bc-base-foreground);
+        --text-hover: var(--bc-base-foreground);
+        --text-current: var(--bc-primary-foreground);
+
+        --background: transparent;
+        --background-hover: var(--bc-base-hover);
+        --background-current: var(--bc-primary);
+        --background-input: var(--bc-base);
+
+        @apply flex space-x-[var(--spacing)] font-[var(--font-weight)] text-[length:var(--font-size)] text-[var(--text)] leading-[var(--line-height)];
+    }
+
+    .pagy a:not([role="separator"]) {
+        @apply block rounded-[var(--rounding)] px-[var(--padding)] py-[var(--py)] bg-[var(--background)] border border-[var(--bc-muted)] transition;
+    }
+
+    .pagy label {
+        @apply inline-block whitespace-nowrap rounded-[var(--rounding)] px-[var(--padding)] py-[var(--py)] bg-[var(--background)] border border-[var(--bc-muted)];
+    }
+
+    .pagy label input {
+        @apply text-[var(--text)] text-[length:var(--font-size)] leading-[var(--line-height)] font-[var(--font-weight)] bg-[var(--background-input)] border border-[var(--bc-muted)] px-2 py-1;
+    }
+}
+
+
+
 dl {
     font-size: var(--text-sm);
+
     dt {
         font-weight: var(--font-weight-bold);
         margin-top: calc(var(--spacing)*4);
@@ -12,10 +53,12 @@ label:has(+ input:required):after {
     content: " *"
 }
 
-input:user-invalid, .field_with_errors input {
+input:user-invalid,
+.field_with_errors input {
     border-color: var(--color-destructive);
 }
 
-label:has(+ input:user-invalid), .field_with_errors label {
+label:has(+ input:user-invalid),
+.field_with_errors label {
     color: var(--color-destructive);
 }
