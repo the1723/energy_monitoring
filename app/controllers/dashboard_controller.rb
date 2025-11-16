@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
     # Filter parameters - default to first energy type if none selected
     @selected_energy_type_id = params[:energy_type_id].presence || @energy_types.first&.id
     @selected_energy_type = @energy_types.find { |et| et.id.to_s == @selected_energy_type_id.to_s }
-    @start_date = params[:start_date].present? ? Date.parse(params[:start_date]) : 1.year.ago.to_date
+    @start_date = params[:start_date].present? ? Date.parse(params[:start_date]) : 1.month.ago.to_date
     @end_date = params[:end_date].present? ? Date.parse(params[:end_date]) : Time.zone.today
     @period = params[:period] || 'day'
 
