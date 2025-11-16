@@ -1,1 +1,1 @@
-json.array! @consumptions, partial: "consumptions/consumption", as: :consumption
+json.array! @consumptions, partial: 'consumptions/consumption', as: :consumption

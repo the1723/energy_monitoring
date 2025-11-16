@@ -26,4 +26,8 @@ class EnergyType < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { scope: :user_id }
   validates :unit, presence: true
+
+  def name_with_unit
+    "#{name} (#{unit})"
+  end
 end

@@ -1,26 +1,19 @@
 <%= form_with(model: consumption, class: "space-y-4") do |form| %>
   <%= render "/layouts/form_errors", object: consumption if consumption.errors.any? %>
-
   <div class="field">
     <%= form.label :energy_type_id, class: "label" %>
-    <%= form.text_field :energy_type_id, class: "input" %>
+    <%= form.collection_select :energy_type_id, EnergyType.all, :id, :name_with_unit, { prompt: "Select Energy Type" }, { class: "select w-full" } %>
   </div>
-
-  <div class="field">
-    <%= form.label :value, class: "label" %>
-    <%= form.number_field :value, class: "input" %>
+  <div class="flex items-center space-x-3">
+    <div class="field">
+      <%= form.label :value, class: "label" %>
+      <%= form.number_field :value %>
+    </div>
+    <div class="field">
+      <%= form.label :date_of_reading, class: "label" %>
+      <%= form.datetime_field :date_of_reading %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :date_of_reading, class: "label" %>
-    <%= form.datetime_field :date_of_reading, class: "input" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id, class: "label" %>
-    <%= form.text_field :user_id, class: "input" %>
-  </div>
-
   <div class="flex justify-end space-x-3 pt-6">
     <%= link_to "Cancel", consumptions_path, class: "btn-outline" %>
     <%= form.submit class: "btn" %>

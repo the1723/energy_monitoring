@@ -1,0 +1,17 @@
+<tr>
+  <td>
+    <span class="badge badge-secondary bg-blue-500 text-white dark:bg-blue-600">
+      <%= consumption.energy_type.name %>
+    </span>
+  </td>
+  <td>
+    <%= consumption.value %>
+  </td>
+  <td>
+    <%# friendly format for consumption.date_of_reading %>
+    <%= consumption.date_of_reading.strftime("%B %d, %Y %H:%M %Z") %>
+  </td>
+  <td class="sticky right-0">
+    <%= link_to "Show", consumption, class: "btn-outline", data: { turbo_action: "advance" } %>
+  </td>
+</tr>

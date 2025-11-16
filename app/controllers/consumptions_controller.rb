@@ -3,25 +3,21 @@
 class ConsumptionsController < ApplicationController
   before_action :set_consumption, only: %i[show edit update destroy]
 
-  # GET /consumptions or /consumptions.json
   def index
-    @consumptions = Consumption.all
+    @pagy, @consumptions = pagy(:offset, current_user.consumptions.order(date_of_reading: :desc))
   end
 
-  # GET /consumptions/1 or /consumptions/1.json
   def show; end
 
-  # GET /consumptions/new
   def new
     @consumption = Consumption.new
   end
 
-  # GET /consumptions/1/edit
   def edit; end
 
   # POST /consumptions or /consumptions.json
   def create
-    @consumption = Consumption.new(consumption_params)
+    @consumption = current_user.consumptions.build(consumption_params)
 
     respond_to do |format|
       if @consumption.save
@@ -63,11 +59,11 @@ class ConsumptionsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_consumption
-    @consumption = Consumption.find(params.expect(:id))
+    @consumption = current_user.consumptions.find(params.expect(:id))
   end
 
   # Only allow a list of trusted parameters through.
   def consumption_params
-    params.expect(consumption: %i[energy_type_id value date_of_reading user_id])
+    params.expect(consumption: %i[energy_type_id value date_of_reading])
   end
 end

@@ -1,22 +1,20 @@
 <div id="<%= dom_id consumption %>">
   <div>
     <strong>Energy type:</strong>
-    <%= consumption.energy_type_id %>
+    <span class="badge badge-secondary bg-blue-500 text-white dark:bg-blue-600">
+      <%= consumption.energy_type.name %>
+      </span>
+    </div>
+    <div>
+      <strong>Value:</strong>
+      <%= consumption.value %>
+    </div>
+    <div>
+      <strong>Date of reading:</strong>
+      <%= consumption.date_of_reading %>
+    </div>
+    <div>
+      <strong>User:</strong>
+      <%= consumption.user_id %>
+    </div>
   </div>
-
-  <div>
-    <strong>Value:</strong>
-    <%= consumption.value %>
-  </div>
-
-  <div>
-    <strong>Date of reading:</strong>
-    <%= consumption.date_of_reading %>
-  </div>
-
-  <div>
-    <strong>User:</strong>
-    <%= consumption.user_id %>
-  </div>
-
-</div>
