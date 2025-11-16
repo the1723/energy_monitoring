@@ -27,11 +27,12 @@
         <%= render partial: "consumption_row", collection: @consumptions, as: :consumption %>
       </tbody>
     </table>
-    <nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center mt-2">
-      <%== @pagy.series_nav %>
-    </nav>
   </div>
   <% if @consumptions.empty? %>
     <%= render "shared/empty", resource_name: "consumptions", new_path: new_consumption_path %>
+  <%else%>
+    <nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center mt-2">
+      <%== @pagy.series_nav %>
+    </nav>
   <% end %>
 <% end %>

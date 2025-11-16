@@ -17,27 +17,19 @@ class ConsumptionsController < ApplicationController
   def create
     @consumption = current_user.consumptions.build(consumption_params)
 
-    respond_to do |format|
-      if @consumption.save
-        format.html { redirect_to @consumption, notice: 'Consumption was successfully created.' }
-        format.json { render :show, status: :created, location: @consumption }
-      else
-        format.html { render :new, status: :unprocessable_content }
-        format.json { render json: @consumption.errors, status: :unprocessable_content }
-      end
+    if @consumption.save
+      redirect_to @consumption, notice: 'Consumption was successfully created.'
+    else
+      render :new, status: :unprocessable_content
     end
   end
 
   # PATCH/PUT /consumptions/1 or /consumptions/1.json
   def update
-    respond_to do |format|
-      if @consumption.update(consumption_params)
-        format.html { redirect_to @consumption, notice: 'Consumption was successfully updated.', status: :see_other }
-        format.json { render :show, status: :ok, location: @consumption }
-      else
-        format.html { render :edit, status: :unprocessable_content }
-        format.json { render json: @consumption.errors, status: :unprocessable_content }
-      end
+    if @consumption.update(consumption_params)
+      redirect_to @consumption, notice: 'Consumption was successfully updated.', status: :see_other
+    else
+      render :edit, status: :unprocessable_content
     end
   end
 
@@ -45,12 +37,7 @@ class ConsumptionsController < ApplicationController
   def destroy
     @consumption.destroy!
 
-    respond_to do |format|
-      format.html do
-        redirect_to consumptions_path, notice: 'Consumption was successfully destroyed.', status: :see_other
-      end
-      format.json { head :no_content }
-    end
+    redirect_to consumptions_path, notice: 'Consumption was successfully destroyed.', status: :see_other
   end
 
   private

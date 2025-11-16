@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DashboardController < ApplicationController
-  def index
+  def index # rubocop:disable Metrics/AbcSize
     @energy_types = current_user.energy_types.order(:name).load
 
     # Filter parameters - default to first energy type if none selected
@@ -19,13 +19,5 @@ class DashboardController < ApplicationController
       end_date: @end_date,
       period: @period
     ).call
-
-    # Preload recent consumptions for table display
-    @recent_consumptions = current_user.consumptions
-                                       .where(energy_type_id: @selected_energy_type_id)
-                                       .where(date_of_reading: @start_date.beginning_of_day..@end_date.end_of_day)
-                                       .order(date_of_reading: :desc)
-                                       .limit(10)
-                                       .to_a
   end
 end

@@ -14,40 +14,27 @@ class EnergyTypesController < ApplicationController
   def edit; end
 
   def create
-    @energy_type = current_user.energy_type.build(energy_type_params)
+    @energy_type = current_user.energy_types.build(energy_type_params)
 
-    respond_to do |format|
-      if @energy_type.save
-        format.html { redirect_to @energy_type, notice: 'Energy type was successfully created.' }
-        format.json { render :show, status: :created, location: @energy_type }
-      else
-        format.html { render :new, status: :unprocessable_content }
-        format.json { render json: @energy_type.errors, status: :unprocessable_content }
-      end
+    if @energy_type.save
+      redirect_to @energy_type, notice: 'Energy type was successfully created.'
+    else
+      render :new, status: :unprocessable_content
     end
   end
 
   def update
-    respond_to do |format|
-      if @energy_type.update(energy_type_params)
-        format.html { redirect_to @energy_type, notice: 'Energy type was successfully updated.', status: :see_other }
-        format.json { render :show, status: :ok, location: @energy_type }
-      else
-        format.html { render :edit, status: :unprocessable_content }
-        format.json { render json: @energy_type.errors, status: :unprocessable_content }
-      end
+    if @energy_type.update(energy_type_params)
+      redirect_to @energy_type, notice: 'Energy type was successfully updated.', status: :see_other
+    else
+      render :edit, status: :unprocessable_content
     end
   end
 
   def destroy
     @energy_type.destroy!
 
-    respond_to do |format|
-      format.html do
-        redirect_to energy_types_path, notice: 'Energy type was successfully destroyed.', status: :see_other
-      end
-      format.json { head :no_content }
-    end
+    redirect_to energy_types_path, notice: 'Energy type was successfully destroyed.', status: :see_other
   end
 
   private

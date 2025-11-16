@@ -21,14 +21,15 @@
         </tr>
       </thead>
       <tbody>
-         <%= render partial: "energy_type_row", collection: @energy_types, as: :energy_type %>
+        <%= render partial: "energy_type_row", collection: @energy_types, as: :energy_type %>
       </tbody>
     </table>
-    <nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center mt-2">
-      <%== @pagy.series_nav %>
-    </nav>
   </div>
   <% if @energy_types.empty? %>
     <%= render "shared/empty", resource_name: "energy types", new_path: new_energy_type_path %>
+  <%else%>
+    <nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center mt-2">
+      <%== @pagy.series_nav %>
+    </nav>
   <% end %>
 <% end %>
