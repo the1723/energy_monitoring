@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <%= render "layouts/head" %>
-  <body class="dark">
+  <body>
     <%= render 'layouts/notice', notice: notice if notice %>
     <div class="grid min-h-svh lg:grid-cols-2">
       <div class="flex flex-col gap-4 p-6 md:p-10">
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="bg-muted relative hidden lg:block">
-        <%= image_tag 'placeholder.png', class: "absolute inset-0 h-full w-full object-cover grayscale-[0.3]" %>
+        <%= image_tag 'placeholder.png', class: "absolute inset-0 h-full w-full object-cover grayscale-[0.3] dark:brightness-[0.7]" %>
       </div>
     </div>
   </body>
