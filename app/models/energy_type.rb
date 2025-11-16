@@ -22,6 +22,7 @@
 #
 class EnergyType < ApplicationRecord
   belongs_to :user
+  has_many :consumptions, dependent: :destroy
 
   validates :name, presence: true, uniqueness: { scope: :user_id }
   validates :unit, presence: true

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_11_16_152945) do
+ActiveRecord::Schema[8.1].define(version: 2025_11_16_153339) do
+  create_table "consumptions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "date_of_reading", null: false
+    t.integer "energy_type_id", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.integer "value", null: false
+    t.index ["user_id", "energy_type_id", "date_of_reading"], name: "index_consumptions_on_user_energy_type_date", unique: true
+  end
+
   create_table "energy_types", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name", null: false
@@ -31,5 +41,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_16_152945) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "consumptions", "energy_types"
+  add_foreign_key "consumptions", "users"
   add_foreign_key "energy_types", "users"
 end

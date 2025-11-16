@@ -1,0 +1,48 @@
+<%= turbo_frame_tag "main_content" do %>
+<%= render 'layouts/notice', notice: notice if notice %>
+<div class="max-w-2xl mx-auto">
+  <div class="card">
+    <section>
+      <div id="<%= dom_id @consumption %>">
+        <dl>
+          <dt>
+            Energy type:
+          </dt>
+          <dd>
+            <%= @consumption.energy_type_id %>
+          </dd>
+          <dt>
+            Value:
+          </dt>
+          <dd>
+            <%= @consumption.value %>
+          </dd>
+          <dt>
+            Date of reading:
+          </dt>
+          <dd>
+            <%= @consumption.date_of_reading %>
+          </dd>
+          <dt>
+            User:
+          </dt>
+          <dd>
+            <%= @consumption.user_id %>
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </div>
+
+  <div class="flex flex-wrap gap-3 mt-6">
+    <%= link_to "Edit this consumption", edit_consumption_path(@consumption), class: "btn", data: { turbo_action: "advance" } %>
+    <%= link_to "Back to consumptions", consumptions_path, class: "btn-outline", data: { turbo_action: "advance" } %>
+    <%= button_to "Delete this consumption",
+          @consumption,
+          method: :delete,
+          class: "btn-destructive",
+          data: { turbo_confirm: "Are you sure you want to delete this consumption?", turbo_action: "advance" },
+          form_class: "inline-block" %>
+  </div>
+</div>
+<% end %>
