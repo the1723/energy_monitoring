@@ -22,6 +22,9 @@ gem 'solid_cable'
 gem 'kamal', require: false
 gem 'thruster', require: false
 
+# Application gems
+gem 'devise', github: 'heartcombo/devise', branch: 'main'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
   gem 'bundler-audit', require: false
