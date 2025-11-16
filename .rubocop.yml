@@ -1,0 +1,162 @@
+inherit_mode:
+  merge:
+    - Exclude
+plugins:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+
+Layout:
+  Exclude:
+    - "config/**/*"
+
+Performance:
+  Enabled: true
+  Exclude:
+    - "spec/**/*"
+
+Layout/ClassStructure:
+  Enabled: true
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/EmptyLineAfterMultilineCondition:
+  Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+Layout/FirstParameterIndentation:
+  Enabled: true
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Layout/LineLength:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+
+Metrics:
+  Enabled: true
+  Exclude:
+    - 'db/**/*'
+
+Metrics/BlockNesting:
+  Enabled: true
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 10
+
+Metrics/BlockLength:
+  Enabled: true
+  Max: 250
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ModuleLength:
+  Enabled: true
+
+Metrics/MethodLength:
+  Enabled: true
+  CountComments: false
+  Max: 20
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 25
+
+Metrics/ParameterLists:
+  Enabled: true
+
+Metrics/PerceivedComplexity:
+  Enabled: true
+
+Metrics/ClassLength:
+  Enabled: true
+  Max: 500
+
+Naming/AccessorMethodName:
+  Enabled: true
+
+Naming/AsciiIdentifiers:
+  Enabled: true
+
+Naming/FileName:
+  Enabled: true
+
+Naming/HeredocDelimiterNaming:
+  Enabled: true
+
+Naming/InclusiveLanguage:
+  Enabled: true
+
+Naming/MethodName:
+  Enabled: true
+
+Naming/MethodParameterName:
+  Enabled: true
+
+Naming/PredicatePrefix:
+  Enabled: true
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: true
+
+Naming/VariableNumber:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+
+Naming/BlockForwarding:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/TernaryParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/Documentation:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+
+Lint/MissingSuper:
+    Enabled: true
+    Exclude:
+      - 'app/components/**/*'
