@@ -1,1 +1,20 @@
 @import "tailwindcss";
+dl {
+    font-size: var(--text-sm);
+    dt {
+        font-weight: var(--font-weight-bold);
+        margin-top: calc(var(--spacing)*4);
+    }
+}
+
+label:has(+ input:required):after {
+    content: " *"
+}
+
+input:user-invalid, .field_with_errors input {
+    border-color: var(--color-destructive);
+}
+
+label:has(+ input:user-invalid), .field_with_errors label {
+    color: var(--color-destructive);
+}

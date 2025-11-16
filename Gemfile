@@ -24,6 +24,7 @@ gem 'thruster', require: false
 
 # Application gems
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
+gem 'basecoat'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
