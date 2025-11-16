@@ -12,6 +12,14 @@
     <%= consumption.date_of_reading.strftime("%B %d, %Y %H:%M %Z") %>
   </td>
   <td class="sticky right-0">
-    <%= link_to "Show", consumption, class: "btn-outline", data: { turbo_action: "advance" } %>
+    <div class="flex gap-2">
+      <%= button_to "Delete",
+          consumption,
+          method: :delete,
+          class: "btn-outline",
+          data: { turbo_confirm: "Are you sure you want to delete this consumption?", turbo_action: "advance" },
+          form_class: "inline-block" %>
+      <%= link_to "Edit", edit_consumption_path(consumption), class: "btn", data: { turbo_action: "advance" } %>
+    </div>
   </td>
 </tr>

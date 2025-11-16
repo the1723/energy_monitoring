@@ -13,15 +13,6 @@
         --line-height: 1.25;
         --py: calc(var(--padding) / 3);
 
-        --text: var(--bc-base-foreground);
-        --text-hover: var(--bc-base-foreground);
-        --text-current: var(--bc-primary-foreground);
-
-        --background: transparent;
-        --background-hover: var(--bc-base-hover);
-        --background-current: var(--bc-primary);
-        --background-input: var(--bc-base);
-
         @apply flex space-x-[var(--spacing)] font-[var(--font-weight)] text-[length:var(--font-size)] text-[var(--text)] leading-[var(--line-height)];
     }
 

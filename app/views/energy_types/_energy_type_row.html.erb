@@ -8,6 +8,14 @@
     <%= energy_type.unit %>
   </td>
   <td class="sticky right-0">
-    <%= link_to "Show", energy_type, class: "btn-outline", data: { turbo_action: "advance" } %>
+    <div class="flex gap-2">
+      <%= button_to "Delete",
+          energy_type,
+          method: :delete,
+          class: "btn-outline",
+          data: { turbo_confirm: "Are you sure you want to delete this energy type?", turbo_action: "advance" },
+          form_class: "inline-block" %>
+      <%= link_to "Edit", edit_energy_type_path(energy_type), class: "btn", data: { turbo_action: "advance" } %>
+    </div>
   </td>
 </tr>

@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 class EnergyTypesController < ApplicationController
-  before_action :set_energy_type, only: %i[show edit update destroy]
+  before_action :set_energy_type, only: %i[edit update destroy]
 
   def index
     @pagy, @energy_types = pagy(:offset, current_user.energy_types.order(:name))
   end
-
-  def show; end
 
   def new
     @energy_type = EnergyType.new

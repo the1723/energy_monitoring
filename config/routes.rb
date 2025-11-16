@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
 
-  resources :consumptions
-  resources :energy_types
+  resources :consumptions, except: [:show]
+  resources :energy_types, except: [:show]
 end

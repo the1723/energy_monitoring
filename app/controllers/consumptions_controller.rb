@@ -1,13 +1,11 @@
 # frozen_string_literal: true
 
 class ConsumptionsController < ApplicationController
-  before_action :set_consumption, only: %i[show edit update destroy]
+  before_action :set_consumption, only: %i[edit update destroy]
 
   def index
     @pagy, @consumptions = pagy(:offset, current_user.consumptions.includes(:energy_type).order(date_of_reading: :desc))
   end
-
-  def show; end
 
   def new
     @consumption = Consumption.new
