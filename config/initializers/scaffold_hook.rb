@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 begin
   require 'rails/generators/rails/scaffold_controller/scaffold_controller_generator'
 
@@ -25,7 +26,7 @@ begin
 
       HTML
 
-      inject_into_file aside_path, link_html, before: /\s*<\/ul>/
+      inject_into_file aside_path, link_html, before: %r{\s*</ul>}
       say "Added #{human_name.pluralize} to sidebar", :green
     end
   end
