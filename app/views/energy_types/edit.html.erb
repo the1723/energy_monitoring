@@ -1,5 +1,8 @@
 <%= turbo_frame_tag "main_content" do %>
   <%= render 'layouts/notice', notice: notice if notice %>
+  <%= link_to energy_types_path, class: "btn-ghost", data: { turbo_action: "advance" } do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6" /></svg> Back
+  <% end %>
   <div class="max-w-2xl mx-auto">
     <div class="card">
       <header>
@@ -9,11 +12,6 @@
       <section>
         <%= render "form", energy_type: @energy_type %>
       </section>
-    </div>
-
-    <div class="flex flex-wrap gap-3 mt-6">
-      <%= link_to "Show this energy type", @energy_type, class: "btn-outline", data: { turbo_action: "advance" } %>
-      <%= link_to "Back to energy types", energy_types_path, class: "btn-outline", data: { turbo_action: "advance" } %>
     </div>
   </div>
 <% end %>

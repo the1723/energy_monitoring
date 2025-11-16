@@ -1,1 +1,1 @@
-json.array! @energy_types, partial: "energy_types/energy_type", as: :energy_type
+json.array! @energy_types, partial: 'energy_types/energy_type', as: :energy_type

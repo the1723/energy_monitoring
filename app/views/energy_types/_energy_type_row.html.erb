@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <span class="badge badge-secondary bg-blue-500 text-white dark:bg-blue-600">
+      <%= energy_type.name %>
+    </span>
+  </td>
+  <td>
+    <%= energy_type.unit %>
+  </td>
+  <td class="sticky right-0">
+    <%= link_to "Show", energy_type, class: "btn-outline", data: { turbo_action: "advance" } %>
+  </td>
+</tr>
