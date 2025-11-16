@@ -26,6 +26,8 @@ gem 'thruster', require: false
 gem 'devise', github: 'heartcombo/devise', branch: 'main'
 gem 'basecoat'
 gem 'pagy', '~> 43.0'
+gem 'groupdate'
+gem 'chartkick'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'

@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "basecoat-css/all"
+import "chartkick/chart.js"
 // View transitions for turbo frame navigation
 addEventListener("turbo:before-frame-render", (event) => {
     if (document.startViewTransition) {
