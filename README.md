@@ -35,3 +35,11 @@
 ## Running Tests
 
 Run tests with `bundle exec rspec`
+
+## Reseeding data
+
+To reseed the database with sample data, run:
+
+```bash
+    bin/rails db:seed:replant
+```
