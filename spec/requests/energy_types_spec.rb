@@ -100,7 +100,7 @@ RSpec.describe 'EnergyTypes', type: :request do
 
       it 'redirects to the created energy type' do
         post energy_types_path, params: { energy_type: valid_attributes }
-        expect(response).to redirect_to(EnergyType.last)
+        expect(response).to redirect_to(energy_types_path)
       end
 
       it 'associates energy type with current user' do
@@ -156,7 +156,7 @@ RSpec.describe 'EnergyTypes', type: :request do
 
       it 'redirects to the energy type' do
         patch energy_type_path(energy_type), params: { energy_type: new_attributes }
-        expect(response).to redirect_to(energy_type)
+        expect(response).to redirect_to(energy_types_path)
       end
     end
 

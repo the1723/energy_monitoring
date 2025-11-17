@@ -17,7 +17,7 @@ class EnergyTypesController < ApplicationController
     @energy_type = current_user.energy_types.build(energy_type_params)
 
     if @energy_type.save
-      redirect_to @energy_type, notice: 'Energy type was successfully created.'
+      redirect_to energy_types_path, notice: 'Energy type was successfully created.'
     else
       render :new, status: :unprocessable_content
     end
@@ -25,7 +25,7 @@ class EnergyTypesController < ApplicationController
 
   def update
     if @energy_type.update(energy_type_params)
-      redirect_to @energy_type, notice: 'Energy type was successfully updated.', status: :see_other
+      redirect_to energy_types_path, notice: 'Energy type was successfully updated.', status: :see_other
     else
       render :edit, status: :unprocessable_content
     end

@@ -102,7 +102,7 @@ RSpec.describe 'Consumptions', type: :request do
 
       it 'redirects to the created consumption' do
         post consumptions_path, params: { consumption: valid_attributes }
-        expect(response).to redirect_to(Consumption.last)
+        expect(response).to redirect_to(consumptions_path)
       end
 
       it 'associates consumption with current user' do
@@ -158,7 +158,7 @@ RSpec.describe 'Consumptions', type: :request do
 
       it 'redirects to the consumption' do
         patch consumption_path(consumption), params: { consumption: new_attributes }
-        expect(response).to redirect_to(consumption)
+        expect(response).to redirect_to(consumptions_path)
       end
     end
 

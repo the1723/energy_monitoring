@@ -18,7 +18,7 @@ class ConsumptionsController < ApplicationController
     @consumption = current_user.consumptions.build(consumption_params)
 
     if @consumption.save
-      redirect_to @consumption, notice: 'Consumption was successfully created.'
+      redirect_to consumptions_path, notice: 'Consumption was successfully created.'
     else
       render :new, status: :unprocessable_content
     end
@@ -27,7 +27,7 @@ class ConsumptionsController < ApplicationController
   # PATCH/PUT /consumptions/1 or /consumptions/1.json
   def update
     if @consumption.update(consumption_params)
-      redirect_to @consumption, notice: 'Consumption was successfully updated.', status: :see_other
+      redirect_to consumptions_path, notice: 'Consumption was successfully updated.', status: :see_other
     else
       render :edit, status: :unprocessable_content
     end
